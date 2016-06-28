@@ -12,14 +12,14 @@ namespace :release do
     invoke 'github:releases:authentication'
 
     fetch(:release_notify_channel).each do |channel|
-      set :slack_channel, channel 
+      set :slack_channel, channel
 
       attachments = [{
         color: 'good',
         title: fetch(:application),
-        text: text,
+        text:  fetch(:release_notify_message),
       }]
-      body = JSON.generate(fetch(:slack_default_body).merge(fetch(:release_notify_message)))
+      body = JSON.generate(fetch(:slack_default_body).merge(attachments: attachments))
       fetch(:slack_client).post fetch(:slack_path), body
     end
   end
