@@ -1,8 +1,6 @@
 # Capistrano::Releases::Notification
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/capistrano/releases/notification`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Notify github releases to slack for Capistrano ver3.
 
 ## Installation
 
@@ -22,18 +20,35 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Capfile
 
-## Development
+```
+require 'capistrano/github/releases'       # dependency
+require 'capistrano/slack_notification'    # dependency
+require 'capistrano/releases/notification'
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+### config/deploy.rb
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```
+set :release_notify_channel, ['#general']
+set :release_notify_mention, []
+
+after 'deploy:finishing', 'release:notify'
+```
 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/capistrano-releases-notification. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
+
+## Author
+
+* [kimromi](https://github.com/kimromi)
+
+## Thanks
+
+* [linyows](https://github.com/linyows)
 
 ## License
 
