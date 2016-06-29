@@ -2,6 +2,7 @@ namespace :release do
 
   set :release_notify_channel, ['#general']
   set :release_notify_mention, []
+  set :release_notify_title,   fetch(:application)
 
   set :release_notify_message, -> {
     "It has released. #{fetch(:release_notify_mention).join(' ')}"
@@ -21,7 +22,7 @@ namespace :release do
 
       attachments = [{
         color: 'good',
-        title: fetch(:application),
+        title: fetch(:release_notify_title),
         text:  fetch(:release_notify_attachment),
       }]
       body = JSON.generate(fetch(:slack_default_body).merge(text: fetch(:release_notify_message), attachments: attachments))
