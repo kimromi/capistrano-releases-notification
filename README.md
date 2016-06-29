@@ -1,5 +1,7 @@
 # Capistrano::Releases::Notification
 
+[![Gem Version](https://badge.fury.io/rb/capistrano-releases-notification.svg)](https://badge.fury.io/rb/capistrano-releases-notification)
+
 Notify github releases to slack for Capistrano ver3.
 
 ## Installation
