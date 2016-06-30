@@ -2,6 +2,8 @@
 
 [![Gem Version](https://badge.fury.io/rb/capistrano-releases-notification.svg)](https://badge.fury.io/rb/capistrano-releases-notification)
 
+![capistrano.png](https://raw.githubusercontent.com/kimromi/capistrano-releases-notification/master/images/capistrano.png)
+
 Notify github releases to slack for Capistrano ver3.
 
 ## Installation
@@ -41,7 +43,7 @@ after 'deploy:finishing', 'release:notify'
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/capistrano-releases-notification. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/kimromi/capistrano-releases-notification. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## Author
