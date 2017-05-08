@@ -15,6 +15,7 @@ namespace :release do
 
   desc "notify release to slack"
   task :notify do
+    Rake::Task['github:releases:authentication'].reenable
     invoke 'github:releases:authentication'
 
     fetch(:release_notify_channel).each do |channel|
